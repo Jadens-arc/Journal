@@ -1,2 +1,3 @@
 # Journal 
 ## a Journal for Jaden 
+except its really for Ms. Vanwoerkoms class but we won't talk about that...
