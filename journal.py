@@ -4,11 +4,16 @@ from datetime import datetime
 class Journal:
     def __init__(self, path = 'lifedata.json'):
         self.path = path
-        with open(path) as rawFile:
-            self.journal = json.loads(rawFile.read())
+        with open(path, 'r') as rawFile:
+            openFile = rawFile.read()
+            self.str = str(openFile)
+            self.journal = json.loads(openFile)
 
-    def getData(self):
+    def getDict(self):
         return self.journal
+
+    def __str__(self):
+        return self.str
 
     def write(self):
         with open(self.path, 'w') as saveFile:
