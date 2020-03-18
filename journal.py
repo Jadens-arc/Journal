@@ -5,19 +5,19 @@ class Journal:
     def __init__(self, path = 'lifedata.json'):
         self.path = path
         with open(path) as rawFile:
-            self.journal = json.loads(rawFile)
+            self.journal = json.loads(rawFile.read())
 
     def write(self):
         with open(self.path, 'w') as saveFile:
-            saveFile.write(json.dumps(self.journal))
+            saveFile.write(json.dumps(self.journal, indent=2))
 
     def newEntry(self, title, message, write = True):
         entry = {
-            datetime.now(): {
+            str(datetime.now()): {
                 'title': title,
                 'body': message
             }
         }
-        Journal.update(entry)
+        self.journal.update(entry)
 
         if write == True: self.write()
