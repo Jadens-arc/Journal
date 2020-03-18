@@ -7,6 +7,9 @@ class Journal:
         with open(path) as rawFile:
             self.journal = json.loads(rawFile.read())
 
+    def getData(self):
+        return self.journal
+
     def write(self):
         with open(self.path, 'w') as saveFile:
             saveFile.write(json.dumps(self.journal, indent=2))
